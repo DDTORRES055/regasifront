@@ -1,0 +1,13 @@
+.strategy.selected {
+    border: solid 0.1px;
+    border-color: rgb(0 149 255);
+    box-shadow: 0px 12px 23px 0px #95cdff;
+}
+
+.strategy {
+    transition: all 0.2s ease;
+}
+
+.strategy:hover {
+    cursor: pointer;
+}
