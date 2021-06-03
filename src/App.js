@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { UserProvider } from "./Context/UserContext";
 import { LayoutProvider } from "./Context/LayoutContext";
 import PanelLayout from "./panelLayout";
-import Invoices from "./Pages/Invoices/Invoices";
-import Payments from "./Pages/Payments/Payments";
+import Schedules from "./Pages/Schedules/Schedules";
+import Incidents from "./Pages/Incidents/Incidents";
+import Assists from "./Pages/Assists/Assists";
+import Users from "./Pages/Users/Users";
 import Invoice from "./Pages/Invoice/Invoice";
 import ContainerForm from "./Pages/ContainerForm/ContainerForm";
 import UpdateUser from "./Pages/UpdateUser/UpdateUser";
@@ -20,11 +22,17 @@ function App() {
                         <Route exact path="/">
                             <PanelLayout />
                         </Route>
-                        <Route exact path="/invoices">
-                            <Invoices />
+                        <Route exact path="/schedules">
+                            <Schedules />
                         </Route>
-                        <Route exact path="/payments">
-                            <Payments />
+                        <Route exact path="/incidents">
+                            <Incidents />
+                        </Route>
+                        <Route exact path="/assists">
+                            <Assists />
+                        </Route>
+                        <Route exact path="/users">
+                            <Users />
                         </Route>
                         <Route exact path="/invoice/:invoiceID">
                             <Invoice />

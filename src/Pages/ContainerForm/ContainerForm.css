@@ -9,3 +9,48 @@ body {
 #root {
     height: 100% !important;
 }
+
+.authentication-content {
+    padding: 10px;
+    border: solid 5px #6418C3;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.authentication-content h3 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+}
+
+.authentication-content form input::placeholder {
+    font-size: 12px;
+}
+
+.authentication-content form input[type=text],
+.authentication-content form input[type=password] {
+    border: solid 2px #6418C3;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+}
+
+.authentication-content form label {
+    color: black;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.authentication-content form input[type=submit] {
+    background-color: #6418C3;
+    border-radius: 40px;
+    padding: 20px 40px;
+    color: white;
+    font-weight: bold;
+    border: solid 5px #DAD4E2;
+}
+
+.authentication-content form input[type=submit]:hover {
+    background-color: #5414a1;
+}

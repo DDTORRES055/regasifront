@@ -1,5 +1,5 @@
 const Constants = {
-    production: false,
+    production: true,
     developerMode: false,
     appURL: () => {
         if (Constants.production) {
@@ -15,6 +15,14 @@ const Constants = {
             return "http://localhost:5000";
         }
     },
+    incidentsValues: {
+        "N" : "Retardo Menor",
+        "Y" : "Retardo Mayor",
+        "T" : "Falta por llegar tarde",
+        "A" : "Falta por salida anticipada",
+        "O" : "Falta por omisión de salida",
+        "D" : "Falta todo el día",
+    }
 };
 
 export default Constants;

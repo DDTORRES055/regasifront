@@ -5,14 +5,7 @@ const UserContext = React.createContext();
 const { Provider, Consumer } = UserContext;
 
 const UserProvider = ({ children }) => {
-    const [user, setUser] = useState({package:{}});
-
-
-    useEffect(() => {
-        setTimeout(() => {
-            setUser({userID : "Usuario", name: "Usuario", package:{}})
-        }, 3000)
-    }, [])
+    const [user, setUser] = useState({});
 
     const isAnUserAuthenticated = () => {
         return !!localStorage.getItem("Authorization");
@@ -26,7 +19,7 @@ const UserProvider = ({ children }) => {
         try {
             const response = await Requests.post("auth", { username, password });
             if (!response.data.access_token) return false;
-            localStorage.setItem("Authorization", response.data.access_token);
+            localStorage.setItem("Authorization", "JWT " + response.data.access_token);
             return true;
         } catch (error) {
             console.log("Error on signInUser");
@@ -44,6 +37,7 @@ const UserProvider = ({ children }) => {
         <Provider
             value={{
                 user,
+                setUser,
                 signInUser,
                 signUpUser,
                 isAnUserAuthenticated,

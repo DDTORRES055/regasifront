@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../Context/UserContext";
+import { LayoutContext } from "../../Context/LayoutContext";
 import { NavLink, Redirect } from "react-router-dom";
-import UsernameInput from "../../Components/UsernameInput/UsernameInput";
-import PasswordInput from "../../Components/PasswordInput/PasswordInput";
-import SubmitInput from "../../Components/SubmitButton/SubmitButton";
 
 export default function SignIn() {
     const { signInUser, isAnUserAuthenticated } = useContext(UserContext);
+
+    const { setLoadingVisible } = useContext(LayoutContext);
 
     const [errorField, seterrorField] = useState("");
 
@@ -35,9 +35,11 @@ export default function SignIn() {
 
         if (!result) {
             seterrorField("Ocurrio un error, intente mas tarde");
+            setLoadingVisible(false);
             return;
         } else if (result.message) {
             seterrorField(result.message);
+            setLoadingVisible(false);
             return;
         }
         setRedirect("/");
@@ -62,14 +64,50 @@ export default function SignIn() {
                 <Redirect to={redirect} />
             ) : (
                 <React.Fragment>
-                    <h3 className="text-center mb-4">Acceder</h3>
+                    <img src="/images/logo.png" width="60px" alt="Logo" />
+                    <h3 className="text-center mb-4">SISTEMA REGASI</h3>
                     <form onSubmit={OnSubmit}>
-                        <UsernameInput id="username" value={user.username} onChange={OnChangeText} required={true} />
-                        <PasswordInput id="password" value={user.password} onChange={OnChangeText} required={true} />
-                        <SubmitInput value="Acceder" />
+                        <div>
+                            <input
+                                type="text"
+                                id="username"
+                                className="mt-3"
+                                placeholder="Usuario"
+                                value={user.username}
+                                onChange={OnChangeText}
+                                required={true}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="password"
+                                id="password"
+                                className="mt-3"
+                                placeholder="Contraseña"
+                                value={user.password}
+                                onChange={OnChangeText}
+                                required={true}
+                            />
+                        </div>
+                        <div className="mt-3">
+                            <input type="checkbox" id="rememberme" value="0" />
+                            <label htmlFor="remember" className="">
+                                Recordar
+                            </label>
+                        </div>
+                        <input
+                            type="submit"
+                            value="Ingresar"
+                            onClick={() => {
+                                setLoadingVisible(true);
+                            }}
+                        />
                     </form>
                     <div className="mt-3">
                         <p className="text-center">{errorField}</p>
+                    </div>
+                    <div className="mt-4">
+                        <p className="text-center">© 2021</p>
                     </div>
                 </React.Fragment>
             )}

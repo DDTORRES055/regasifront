@@ -28,10 +28,10 @@ export default function Payments() {
     }, [payments])
 
     return (
-        <Layout title="Mis pagos">
+        <Layout title="Usuarios">
             <div className="content-body">
                 <div className="container-fluid">
-                    <Breadcrumb pageTitles={["Inicio", "Mis pagos"]} />
+                    <Breadcrumb pageTitles={["Inicio", "Usuarios"]} />
                     <React.Fragment>
                         {payments === undefined ? (
                             <div></div>

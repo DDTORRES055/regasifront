@@ -15,10 +15,10 @@ export default function Invoices() {
     }, [])
 
     return (
-        <Layout title="Mis Facturas">
+        <Layout title="Horarios">
             <div className="content-body">
                 <div className="container-fluid">
-                    <Breadcrumb pageTitles={["Inicio", "Mis Facturas"]} />
+                    <Breadcrumb pageTitles={["Inicio", "Horarios"]} />
                     <React.Fragment>
                         {invoices === undefined ? (
                             <div></div>

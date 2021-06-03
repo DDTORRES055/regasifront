@@ -16,26 +16,26 @@ export default function Sidebar() {
                                 <span className="nav-text">Inicio</span>
                             </NavLink>
                         </li>
-                        <li className={location.pathname === "/strategies" ? "mm-active active-no-child" : ""}>
-                            <NavLink to="/strategies" className="ai-icon">
+                        <li className={location.pathname === "/schedules" ? "mm-active active-no-child" : ""}>
+                            <NavLink to="/schedules" className="ai-icon">
                                 <i className="flaticon-381-list-1"></i>
                                 <span className="nav-text">Horarios</span>
                             </NavLink>
                         </li>
-                        <li className={location.pathname === "/prices" ? "mm-active active-no-child" : ""}>
-                            <NavLink to="/prices" className="ai-icon">
+                        <li className={location.pathname === "/incidents" ? "mm-active active-no-child" : ""}>
+                            <NavLink to="/incidents" className="ai-icon">
                                 <i className="flaticon-381-box-2"></i>
                                 <span className="nav-text">Incidencias</span>
                             </NavLink>
                         </li>
-                        <li className={location.pathname === "/invoices" ? "mm-active active-no-child" : ""}>
-                            <NavLink to="/invoices" className="ai-icon">
+                        <li className={location.pathname === "/assists" ? "mm-active active-no-child" : ""}>
+                            <NavLink to="/assists" className="ai-icon">
                                 <i className="flaticon-381-notepad-1"></i>
                                 <span className="nav-text">Asistencias</span>
                             </NavLink>
                         </li>
-                        <li className={location.pathname === "/tree" ? "mm-active active-no-child" : ""}>
-                            <NavLink to="/tree" className="ai-icon">
+                        <li className={location.pathname === "/users" ? "mm-active active-no-child" : ""}>
+                            <NavLink to="/users" className="ai-icon">
                                 <i className="flaticon-381-user-9"></i>
                                 <span className="nav-text">Usuarios</span>
                             </NavLink>

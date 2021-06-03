@@ -10,15 +10,15 @@ export default function Header({ title = "Pagina", setRedirect }) {
     return (
         <React.Fragment>
             <div className="nav-header">
-                <NavLink to="/" className="brand-logo">
-                    {/* {toggledMenu ? 
-                        <img width="80px" className="logo-abbr" src="/images/logo.png" alt="" />
+                <NavLink to="/" className="brand-logo d-flex justify-content-center">
+                    {toggledMenu ? 
+                        <img width="30px" className="logo-abbr" src="/images/logo.png" alt="" />
                         :
                         <React.Fragment>
-                        <img width="80px" style={{display: "none"}} className="logo-abbr" src="/images/logo.png" alt="" />
+                        <img width="30px" style={{display: "none"}} className="logo-abbr" src="/images/logo.png" alt="" />
                         <img className="brand-title" style={{ maxWidth: "90%", height: "auto", margin: "5px 0" }} src="/images/horizontal.png" alt="" />
                         </React.Fragment>
-                    } */}
+                    }
                     {/* <img className="logo-compact" src="./images/logo.png" alt="" />
                     <img className="brand-title" src="./images/horizontal.png" alt="" /> */}
                 </NavLink>
@@ -41,21 +41,13 @@ export default function Header({ title = "Pagina", setRedirect }) {
                             </div>
 
                             <ul className="navbar-nav header-right">
-                                <li className="nav-item dropdown notification_dropdown">
-                                    <a className="nav-link  ai-icon">
-                                        <i className="flaticon-381-networking"></i>
-                                        <span className="badge light text-white bg-primary">
-                                            {user.strategies ? user.strategies.length : 0}
-                                        </span>
-                                    </a>
-                                </li>
                                 <li className="nav-item dropdown header-profile">
                                     <a className="nav-link" href="#" role="button" data-toggle="dropdown">
                                         <div className="header-info">
                                             <span className="text-black">
-                                                Hola, <strong>{user.name}</strong>
+                                                Hola, <strong>{user.CNOMBRE}</strong>
                                             </span>
-                                            <p className="fs-12 mb-0">{user.package.name}</p>
+                                            <p className="fs-12 mb-0">{user.CCVEEMP}</p>
                                         </div>
                                         <img src="/images/profile/pic1.jpg" width="20" alt="" />
                                     </a>

@@ -7,7 +7,7 @@ export default function PanelLayout() {
     const { user } = useContext(UserContext)
 
     return (
-        <Layout title="Dashboard">
+        <Layout title="Inicio">
             <div className="content-body">
                 <div className="container-fluid">
                     <Breadcrumb pageTitles={["Inicio"]} />

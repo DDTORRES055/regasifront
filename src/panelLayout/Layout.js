@@ -1,21 +1,31 @@
-import React, { useState, useContext, useEffect } from "react"
-import { UserContext } from "../Context/UserContext"
-import { LayoutContext } from "../Context/LayoutContext"
-import Loading from "./Loading/Loading"
-import { Redirect } from "react-router-dom"
-import Header from "./Header"
-import Sidebar from "./Sidebar"
-import "./Layout.css"
+import React, { useState, useContext, useEffect } from "react";
+import { UserContext } from "../Context/UserContext";
+import { LayoutContext } from "../Context/LayoutContext";
+import Requests from "../Utilities/Requests";
+import Loading from "./Loading/Loading";
+import { Redirect } from "react-router-dom";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import "./Layout.css";
 
 export default function PanelLayout({ title, children }) {
-    const { user, isAnUserAuthenticated } = useContext(UserContext)
-    const { loadingVisible, toggledMenu } = useContext(LayoutContext)
+    const { user, setUser, isAnUserAuthenticated } = useContext(UserContext);
+    const { loadingVisible, setLoadingVisible, toggledMenu } = useContext(LayoutContext);
 
-    const [redirect, setRedirect] = useState(undefined)
+    const [redirect, setRedirect] = useState(undefined);
 
     useEffect(() => {
-        setRedirect(!isAnUserAuthenticated())
-    }, [])
+        setRedirect(!isAnUserAuthenticated());
+        const getInfo = async () => {
+            const response = await Requests.get("myuser");
+            if (response.data) {
+                console.log(response.data);
+                setUser(response.data);
+            }
+        };
+        getInfo();
+        setLoadingVisible(false);
+    }, []);
 
     return (
         <React.Fragment>
@@ -25,7 +35,7 @@ export default function PanelLayout({ title, children }) {
                     <div></div>
                 ) : redirect ? (
                     <Redirect to="/signin" />
-                ) : user.userID ? (
+                ) : user.CCVEEMP ? (
                     <React.Fragment>
                         <Header title={title} setRedirect={setRedirect} />
                         <Sidebar />
@@ -38,5 +48,5 @@ export default function PanelLayout({ title, children }) {
                 )}
             </div>
         </React.Fragment>
-    )
+    );
 }
